@@ -1,0 +1,92 @@
+
+.div {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  background: url('/src/fotos/PerroQueLee.png') no-repeat center center fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #744c2e;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+
+.text {
+  font-family: serif;
+  font-size: 5em;
+  font-weight: bold;
+  position:relative;
+  top:160px;
+  left:-200px;
+  color:#79b3e4;
+}
+
+
+.text:hover {
+  color: #744c2e;
+  position: relative;
+}
+
+
+.ButtonCreate {
+  color: #79b3e4;
+  background-color: #bc3d49;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: DejaVu serif;
+  border-radius: 50%;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+  line-height: 4em;
+  text-align: center;
+  position: relative;
+  top: 28px;
+  right: 400px;
+}
+
+.ButtonCreate:hover {
+  color: #d91515;
+  background-color: #add1ee;
+  box-shadow: 0px 0px 10px #bde0fe;
+}
+
+
+
+.filterbar {
+  justify-content: center;
+  align-items: center;
+}
+
+.filterbar select {
+  margin: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #bde0fe;
+  color: #744c2e;
+  border: none;
+  font-family: Dejavu serif;
+  font-size: 1.2rem;
+  position: relative;
+  right: 50px;
+  top:100px;
+}
+
+.LinkHomeButton{
+  color:#744c2e;
+  text-decoration: none;
+  text-shadow:black;
+}

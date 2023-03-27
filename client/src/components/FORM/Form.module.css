@@ -1,0 +1,87 @@
+
+.dogImage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: no-repeat center center;
+  z-index: 1;  
+  opacity: 0.6; 
+}
+
+.text {
+  font-family: serif;
+  font-size: 5em;
+  position:relative;
+  left:-150px;
+  top: -500px;
+  color: whitesmoke;
+  text-decoration: none;
+  opacity: 1;
+}
+
+
+.text:hover {
+  color: #79b3e4;
+  position: relative;
+}
+
+  .Form{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 700px;;
+    width: 50%;
+    height: 350px;
+    border-radius: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    opacity:1; 
+  }
+
+  
+
+
+  .SaveButton { /* coloca el botón en la misma línea que el anterior */
+  position: relative;
+  top: -50px;
+  left: 90px;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  border-radius: 50%;
+  background:#bc3d49;
+  color: whitesmoke;
+  cursor: pointer;
+  border:none;
+  outline: none;
+  }
+ 
+  
+  .SaveButton:hover {
+    background-color: #8c6d8f;
+  }
+  
+  .FormTitle{
+    color: whitesmoke;
+    position: relative;
+    top: 80px; /* ajusta la posición vertical */
+    right: 100px; /* ajusta la posición horizontal */
+  }
+
+  .FormText{
+    color:whitesmoke;
+    font-weight: bold; /* hace que el texto sea más grueso */
+    font-size: 16px; /* ajusta el tamaño del texto */
+    position: relative;
+    top: 100px;
+    right: 100px;
+  }
+
+
+  
+  
+  .leftAlignText {
+    position: relative;
+    right: 60px;   
+  }

@@ -1,0 +1,49 @@
+.landingWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: no-repeat center center;
+  z-index: 1;
+  opacity: 0.7;
+  }
+
+
+  
+  .landingButton {
+    position: absolute;
+    box-shadow:black;
+  }
+  
+  .landingButton button {
+    color: whitesmoke;
+    background-color: transparent;
+    border: none;
+    font-size: 5rem;
+    font-weight: bold;
+    font-family: serif;
+    cursor: pointer;
+    opacity: 1;
+  }
+
+  
+.text {
+  font-size: 2rem;
+  font-family: serif;
+  position:relative;
+  top:550px;
+  left: 500px;
+  text-align: center;
+}
+.text:hover {
+  color: #bc3d49;
+  transition: duration 12px;
+}
+
+.img {
+  position: "absolute";
+  top: 0;
+  left: 0;
+  width: "100%";
+  height: "100%";
+  object-fit: cover;
+}

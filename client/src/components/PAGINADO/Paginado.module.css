@@ -1,0 +1,26 @@
+
+  .paginado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .number button {
+    width: 3rem;
+    height: 3rem;
+    margin: 0.25rem;
+    background-color: #bde0fe;
+    justify-content: center;
+    align-items:center;
+    border-radius: 2em;
+    border:none;
+    outline: none;
+    color: #744c2e;
+    cursor:pointer;
+    position: relative;
+    top:50px;
+}
+
+
+
+  
