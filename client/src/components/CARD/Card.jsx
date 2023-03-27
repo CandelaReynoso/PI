@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../CARD/Card.module.css'
 
+
+
 const Card = ({ name,weight, image, id, temperaments, temperament, createInDb }) => {
   return (
     <div className={styles.card}> 
@@ -31,4 +33,4 @@ export default Card;
 
 
 
-
+//probando commits
