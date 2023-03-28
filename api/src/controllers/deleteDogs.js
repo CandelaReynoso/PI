@@ -1,27 +1,18 @@
 const { Dog } = require('../db');
 
-const deleteDogs = async (req, res) => {
-  const id = req.params.id;
 
-  try {
-    // Busca el perro por ID
-    const dog = await Dog.findByPk(id);
-    console.log(dog);
-    // Si no se encuentra el perro, devuelve un error
-    if (!dog) {
-      return res.status(404).send('Dog not found');
-    }
 
-    // Elimina el perro de la base de datos
-    await dog.destroy();
+const deleteDogs = async (id) => {
 
-    res.send('Dog deleted successfully');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Internal Server Error');
-  }
-};
+ if(!id) {
+  throw new Error ('This Dog does not exist') 
+ } else if(typeof id === 'number') throw new Error ('You can not erase this game')
+  const foundDog = await Dog.findByPk(id)
 
-module.exports = {
-  deleteDogs,
-};
+  foundDog.destroy({
+    where: { id: id }
+   })
+   return foundDog;
+}
+
+module.exports = {deleteDogs};
