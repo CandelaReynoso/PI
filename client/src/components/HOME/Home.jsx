@@ -112,12 +112,18 @@ useEffect(() => {
         </select>
         </div>
         <div style={{marginBottom: '50px', marginTop: '50px' }}>
+        
          <Paginado 
         dogsPerPage={dogsPerPage}
         dogs={dogs.length}
         paginado={paginado}
-        /> 
-        </div>     
+        />  
+        
+        </div>
+        <>
+        <br/>
+        <h3 className={styles.currentPage}>Page: {currentPage} </h3>
+        </> 
         
         {currentDogs?.map((dog) => {
           return (

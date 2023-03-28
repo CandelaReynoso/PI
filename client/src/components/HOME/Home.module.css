@@ -90,3 +90,9 @@
   text-decoration: none;
   text-shadow:black;
 }
+
+.currentPage{
+  font-family: Dejavu serif;
+  font-size: 1.5em;
+  color:#79b3e4;
+}

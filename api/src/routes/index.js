@@ -7,7 +7,6 @@ const getAllDogsMiddleware = require('./getAllDogs');
 const getDogsByIdMiddleware = require('./getDogsById');
 const postNewDogMiddleware = require('./postDog');
 const getAllTempsMiddleware = require('./getAllTemps');
-
 const router = Router();
 
 // Configurar los routers
