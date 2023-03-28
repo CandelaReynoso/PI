@@ -38,10 +38,10 @@ useEffect(() => {
   dispatch(getTemperaments());
 }, [dispatch]);
 
-  function handleClick(event) {
+/*   function handleClick(event) {
     event.preventDefault();
     dispatch(getDogs());
-  } 
+  }  */
   
   const handleFilterByTemperament = (e) => {
     e.preventDefault();    
@@ -70,7 +70,7 @@ useEffect(() => {
   return (
     <div className={styles.div}>
       <Link to="/" className={styles.LinkHomeButton}> 
-      <p className={styles.text}>WE LOVE DOGS!</p>
+      <p className={styles.text}>WE ♥️ DOGS!</p>
       </Link>  
       <Link  className={styles.landingButton2} to="/">
       </Link>
