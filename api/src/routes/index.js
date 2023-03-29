@@ -7,8 +7,8 @@ const getAllDogsMiddleware = require('./getAllDogs');
 const getDogsByIdMiddleware = require('./getDogsById');
 const postNewDogMiddleware = require('./postDog');
 const getAllTempsMiddleware = require('./getAllTemps');
-const deleteDogsMiddleware = require('./deleteDogsDb')
-
+const deleteDogsMiddleware = require('./deleteDogsDb');
+const editDogMiddleware = require('./editDogRoute');
 const router = Router();
 
 // Configurar los routers
@@ -18,6 +18,6 @@ router.use('/dogs', getDogsByIdMiddleware);
 router.use('/dogs', postNewDogMiddleware);
 router.use('/temps', getAllTempsMiddleware);
 router.use('/dogs', deleteDogsMiddleware);
-
+router.use('/dogs', editDogMiddleware);
 
 module.exports = router;
