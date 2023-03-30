@@ -1,12 +1,13 @@
 import React, {useState,  useEffect } from "react";
 import { useDispatch , useSelector} from "react-redux";
-import { getDogs , getTemperaments, FilterByTemperament,FilterByWeight,orderByName,filteredByOrigin, deleteDogRequest,deleteDogSuccess} from "../../redux/actions/actions";
+import { getDogs , getTemperaments, FilterByTemperament,FilterByWeight,orderByName,filteredByOrigin} from "../../redux/actions/actions";
 import { Link } from "react-router-dom";
 import Card from "../CARD/Card";
 import Paginado from "../PAGINADO/Paginado";
 import SearchBar from '../SEARCH BAR/SearchBar';
 import styles from '../HOME/Home.module.css'
-import { useHistory } from 'react-router-dom';
+
+
 
 
 
@@ -65,8 +66,9 @@ useEffect(() => {
   function handleFilteredByOrigin(e){ 
     dispatch(filteredByOrigin(e.target.value))
   }
-  
-  
+
+
+
   return (
     <div className={styles.div}>
       <Link to="/" className={styles.LinkHomeButton}> 
@@ -126,8 +128,7 @@ useEffect(() => {
         </> 
         
         {currentDogs?.map((dog) => {
-          return (
-            
+          return (       
             <Card
               key={dog.id}
               id={dog.id}
@@ -138,6 +139,7 @@ useEffect(() => {
               temperament={dog.temperament}
               createInDb = {dog.createInDb}
             /> 
+            
           );
         })}
         

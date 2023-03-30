@@ -13,11 +13,12 @@ const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-router.use('/dogs', getAllDogsMiddleware);
-router.use('/dogs', getDogsByIdMiddleware);
-router.use('/dogs', postNewDogMiddleware);
+router.use('/dogs', getAllDogsMiddleware, getDogsByIdMiddleware,postNewDogMiddleware,deleteDogsMiddleware,editDogMiddleware);
 router.use('/temps', getAllTempsMiddleware);
-router.use('/dogs', deleteDogsMiddleware);
-router.use('/dogs', editDogMiddleware);
+
+//router.use('/dogs', getDogsByIdMiddleware);
+//router.use('/dogs', postNewDogMiddleware);
+//router.use('/dogs', deleteDogsMiddleware);
+//router.use('/dogs', editDogMiddleware);
 
 module.exports = router;

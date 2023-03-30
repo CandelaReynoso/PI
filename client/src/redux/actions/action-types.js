@@ -9,3 +9,4 @@ export const SORT_BY_WEIGHT="SORT_BY_WEIGHT";
 export const ORDER_BY_NAME="ORDER_BY_NAME";
 export const FILTERED_BY_ORIGIN ="FILTERED_BY_ORIGIN";
 export const POST_BREED ="POST_BREED";
+export const DELETE_DOG_DB ="DELETE_DOG_DB";

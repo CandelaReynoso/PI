@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getTemperaments, postBreed } from '../../redux/actions/actions';
+import { getTemperaments, postBreed} from '../../redux/actions/actions';
 import {Link, useHistory} from 'react-router-dom'; 
 import styles from '../FORM/Form.module.css';
 import image from '../../../src/fotos/FormDog.png';
@@ -24,7 +24,7 @@ function validation (input){
     errors.weight ='The weigth must be between "1 kg" and "82 kg"'
   } else if (!input.age) {
      errors.age = 'Age is required'
-     if(input.age == 0 || input.age > 20  ) 
+     if(input.age === 0 || input.age > 20  ) 
       errors.age = 'Age should be bigger than 0 and lower than 20 year'
   } else if (!input.image){
     errors.image = 'Image is required'
@@ -80,12 +80,12 @@ export default function Creator() {
 
   
 
-
     function handleChange(e){
       setInput({
         ...input, 
         [e.target.name]: e.target.value
       });
+  
       setErrors(validation({
         ...input,
         [e.target.name]: e.target.value

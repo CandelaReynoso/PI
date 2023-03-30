@@ -55,9 +55,10 @@ const Detail = () => {
                             <div className={styles.circle}>
                             <div><span className={styles.property}>Height: </span><p className={styles.property2}>{doggys.height} cm</p></div>
                             <div><span className={styles.property}>Weight: </span><p className={styles.property2}>{doggys.weight} kg</p></div>
+                            <div><span className={styles.property}>Temperaments: </span><p className={styles.temperament}>{doggys.temperament}</p></div>
                             {doggys.age && doggys.age[0] !== ' ' ? <div><span className={styles.property}>Age: </span>
                             <p className={styles.property2}>{doggys.age}</p></div> : null}
-                       
+                          
                             {/* dogs api */}
                             { console.log(doggys)}
                                 {doggys.createInDb === true ?

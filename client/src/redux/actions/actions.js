@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_DOGS,GET_TEMPERAMENTS,GET_FILTER_TEMPERAMENTS,GET_BY_NAME,GET_BY_ID,SORT_BY_WEIGHT, ORDER_BY_NAME,FILTERED_BY_ORIGIN,POST_BREED} from "./action-types";
+import {GET_DOGS,GET_TEMPERAMENTS,GET_FILTER_TEMPERAMENTS,GET_BY_NAME,GET_BY_ID,SORT_BY_WEIGHT, ORDER_BY_NAME,FILTERED_BY_ORIGIN,POST_BREED,DELETE_DOG_DB} from "./action-types";
 
 export function getDogs() {
   return async function(dispatch) {
@@ -92,3 +92,16 @@ export const postBreed = (payload) => { //ACTION QUE CREA UNA RAZA
       return response;
   }
 }
+
+export const deleteDog = (id) => async (dispatch) => {
+  try {
+    const response = await axios.delete(`http://localhost:3001/dogs/${id}`);
+    dispatch({
+      type: DELETE_DOG_DB,
+      payload: id
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};

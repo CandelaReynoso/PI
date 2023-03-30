@@ -25,7 +25,7 @@ function SearchBar() {
 
   return (
     <div className={styles.SearchBar}>
-      <input clasName= {styles.SearchBar} type='text' value={searchTerm} onChange={handleInputChange}/>
+      <input className= {styles.SearchBar} type='text' value={searchTerm} onChange={handleInputChange}/>
       <button onClick={handleSearch}>Search</button>
     </div>
   );

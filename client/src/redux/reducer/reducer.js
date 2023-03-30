@@ -139,7 +139,16 @@ function rootReducer(state = initialState, action) {
                                   dogs: [...state.dogs, action.payload],
                                 };
                         
-                       
+                        case "DELETE_DOG_DB":
+                                    const dogsCopy = [...state.dogsCopy]; // crea una copia del array dogsCopy
+                                    const index = dogsCopy.findIndex((dog) => dog.id === action.payload); // encuentra el índice del perro que coincide con el id de la acción
+                                    if (index !== -1) {
+                                      dogsCopy.splice(index, 1); // elimina el perro del array de perros copiados
+                                    }
+                                    return {
+                                      ...state,
+                                      dogs: dogsCopy // devuelve los perros actualizados
+                                    };
                               
             
                     

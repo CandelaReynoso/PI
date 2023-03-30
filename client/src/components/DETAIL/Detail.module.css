@@ -103,3 +103,11 @@
   position: relative;
 } 
 
+.temperament{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: DejaVu serif;
+  position: relative;
+  left: 550px;
+  top: 70px;
+}
