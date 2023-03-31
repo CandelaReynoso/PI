@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_DOGS,GET_TEMPERAMENTS,GET_FILTER_TEMPERAMENTS,GET_BY_NAME,GET_BY_ID,SORT_BY_WEIGHT, ORDER_BY_NAME,FILTERED_BY_ORIGIN,POST_BREED,DELETE_DOG_DB} from "./action-types";
+import {GET_DOGS,GET_TEMPERAMENTS,GET_FILTER_TEMPERAMENTS,GET_BY_NAME,DELETE_DOG_DB,SORT_BY_WEIGHT, ORDER_BY_NAME,FILTERED_BY_ORIGIN,POST_BREED,DELETE_DOG} from "./action-types";
 
 export function getDogs() {
   return async function(dispatch) {
@@ -53,9 +53,9 @@ export function getById(id) {
   return async function (dispatch) {
       try {
           const res = await axios.get(`http://localhost:3001/dogs/${id}`)
-          dispatch({ type: GET_BY_ID, payload: res.data })
+          dispatch({ type: DELETE_DOG_DB, payload: res.data })
       } catch (err) {
-          dispatch({ type: GET_BY_ID, payload: err.response.data })
+          dispatch({ type: DELETE_DOG_DB, payload: err.response.data })
       }
   };
 }
@@ -83,7 +83,7 @@ export const filteredByOrigin = (payload) => {
 
 export const postBreed = (payload) => { //ACTION QUE CREA UNA RAZA
   return async function (dispatch){
-      const response = await axios.post("http://localhost:3001/dogs", payload);
+      const response = await axios.post('http://localhost:3001/dogs',payload);
       console.log(response.data);
       dispatch({
           type: POST_BREED,
@@ -93,15 +93,21 @@ export const postBreed = (payload) => { //ACTION QUE CREA UNA RAZA
   }
 }
 
-export const deleteDog = (id) => async (dispatch) => {
-  try {
-    const response = await axios.delete(`http://localhost:3001/dogs/${id}`);
+export const deleteDog = (id) => async (dispatch) =>{
+    try {
+      if (!id) {
+        throw new Error("Invalid ID");
+      }
+      const response = await axios.delete(`http://localhost:3001/dogs/delete/${id}`);
+    console.log(response.data);
     dispatch({
-      type: DELETE_DOG_DB,
-      payload: id
-    });
-    return response.data;
+      type: DELETE_DOG,
+      payload: response.data
+  });
   } catch (error) {
     console.error(error);
   }
 };
+
+
+

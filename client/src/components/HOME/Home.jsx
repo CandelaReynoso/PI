@@ -28,7 +28,8 @@ function Home() {
   const currentDogs = dogs.slice(indexOfFirstDog, indexOfLastDog);  //const que guarda todos los perros que voy a tener por pagina.
 
   
-  const paginado = (pageNumber) =>{  
+  const paginado = (pageNumber) =>{ 
+     
    setCurrentPage(pageNumber)
   }
   
@@ -37,6 +38,7 @@ useEffect(() => {
   //acciones a depachar luego de montar el componente
   dispatch(getDogs());
   dispatch(getTemperaments());
+
 }, [dispatch]);
 
 /*   function handleClick(event) {
@@ -64,6 +66,7 @@ useEffect(() => {
   };
 
   function handleFilteredByOrigin(e){ 
+    e.preventDefault();  
     dispatch(filteredByOrigin(e.target.value))
   }
 
@@ -104,7 +107,7 @@ useEffect(() => {
           <option value="api">Existent</option>
         </select>
 
-        <select  onChange={(event) => handleFilterByTemperament(event)}>
+        <select onChange={(event) => handleFilterByTemperament(event)}>
           <option value ='All'>All Temperaments</option>
           {temperamentsState?.map(t => (
                 <option key={t} value={t}>
@@ -116,6 +119,7 @@ useEffect(() => {
         <div style={{marginBottom: '50px', marginTop: '50px' }}>
         
          <Paginado 
+
         dogsPerPage={dogsPerPage}
         dogs={dogs.length}
         paginado={paginado}

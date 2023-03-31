@@ -58,7 +58,7 @@ export default function Creator() {
 
     useEffect(() => {
       dispatch(getTemperaments());
-    }, []);
+    }, [dispatch]);
     
 
     const temperaments = useSelector(state => state.temperaments);

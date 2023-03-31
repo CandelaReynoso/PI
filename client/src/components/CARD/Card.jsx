@@ -2,21 +2,32 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../CARD/Card.module.css';
 import { deleteDog } from '../../redux/actions/actions';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
-export const handleDeleteDog = (id) => {  
-    try {  
-      const response = deleteDog(id); // llama a la función deleteDog() con el id del perro
-      console.log(response.data); // muestra la respuesta de la API
-    } catch (error) {
-      console.error(error);   
+const Card = ({id, name,weight, image, temperaments, temperament, createInDb}) => {
+  const [isDeleting, setIsDeleting] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isDeleting) {
+      console.log('Deleting dog...');
+      setIsDeleting(false);
     }
-    console.log("Delete button clicked");
-  };
+  }, [dispatch]);
 
-const Card = ({ name,weight, image, id, temperaments, temperament, createInDb}) => {
-  
-  
+  const handleDeleteDog = async (id) => {
+    try {
+      setIsDeleting(true);
+      dispatch(deleteDog(id.id));
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
 return (
     <div className={styles.card}> 
        <Link className={styles.Link} to={`/dogs/${id}`}>
@@ -36,7 +47,7 @@ return (
         </div>
       </Link>
       {createInDb && (
-          <button onClick={(event) => {event.preventDefault(); handleDeleteDog(id)}}>DELETE</button>
+          <button onClick={() => handleDeleteDog({ id })}>DELETE</button>
         )}
     </div>
   );
