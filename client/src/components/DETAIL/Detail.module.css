@@ -32,19 +32,19 @@
   object-position: center;
   filter: brightness(90%) saturate(40%) hue-rotate(10deg) sepia(8%) contrast(1.2) drop-shadow(0px 0px 0px rgba(125, 174, 214, 0.4));
   position: relative;
-  top:800px;
-  right:300px;
+  top:1200px;
+  right:620px;
   border-color: #744c2e;
   border: 4px solid #744c2e;
 }
 
 .title {
-  font-size: 60px;
+  font-size: 100px;
   font-weight: bold;
   font-family: DejaVu serif;
-  position: absolute;
-  top:600px;
-  left:250px;
+  position: relative;
+  top:370px;
+  right:650px;
   color:#744c2e;
 }
 
@@ -66,32 +66,29 @@
 
 
 .property {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   font-family: DejaVu serif;
-  padding: -25%;
+  padding: 3%;
   text-align: center;
   background-color: #a59395;
   color: white;
-  border-radius: 50%;
+  border-radius: 60%;
   width: 200px;
   height: 200px;
-  display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1.5;
+  line-height: 6;
   position: relative;
-  bottom:-200px;
-  left: 800px;
+  top:200px;
 }
-
 .property2 {
   font-size: 20px;
   font-weight: bold;
   font-family: DejaVu serif;
   position: relative;
-  left: 400px;
-  top: 70px;
+  top: 200px;
+  line-height: 6;
 }
 
 
@@ -99,15 +96,40 @@
 .footer{
   text-decoration: none;
   font-family: Dejavu serif;
-  top: 250px;
   position: relative;
+  right:600px;
+  top:400px;
 } 
 
-.temperament{
-  font-size: 20px;
+.update {
+  text-decoration: none;
+  font-size: 35px;
   font-weight: bold;
   font-family: DejaVu serif;
+  padding: 2%;
+  background-color: #a59395;
+  color: white;
+  border-radius: 60%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   position: relative;
-  left: 550px;
-  top: 70px;
+  bottom: 150px;
+  left: 270px;
+  border: 0.1px solid white;
+}
+.update2{
+  text-decoration:none;
+  color:#744c2e;
+}
+
+.update2:hover {
+  color: #79b3e4;
+}
+.update:hover {
+  background-color:pink;
+  opacity: 50%;
 }

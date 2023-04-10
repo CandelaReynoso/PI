@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_DOGS,GET_TEMPERAMENTS,GET_FILTER_TEMPERAMENTS,GET_BY_NAME,DELETE_DOG_DB,SORT_BY_WEIGHT, ORDER_BY_NAME,FILTERED_BY_ORIGIN,POST_BREED,DELETE_DOG} from "./action-types";
+import {GET_DOGS,GET_TEMPERAMENTS,GET_FILTER_TEMPERAMENTS,GET_BY_NAME,DELETE_DOG_DB,SORT_BY_WEIGHT, ORDER_BY_NAME,FILTERED_BY_ORIGIN,POST_BREED,DELETE_DOG,UPDATE_BREED_REQUEST,UPDATE_BREED_SUCCESS,UPDATE_BREED_FAILURE, UPDATE_DOG} from "./action-types";
 
 export function getDogs() {
   return async function(dispatch) {
@@ -104,10 +104,35 @@ export const deleteDog = (id) => async (dispatch) =>{
       type: DELETE_DOG,
       payload: response.data
   });
+  return response;
   } catch (error) {
     console.error(error);
   }
 };
 
+export const updateDog = (id, dogData) => async (dispatch) => {
+  try { 
+    const response = await axios.put(`http://localhost:3001/dogs/update/${id}`, dogData);
+    console.log(response.data);
+    dispatch({ type: UPDATE_DOG, payload: response.data });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+/* export const updateDog = (id,name, height, weight,age, image, temperaments) => async (dispatch) =>{
+
+  try { 
+  const data = { name, height, weight, age, image, temperaments };
+  const response = await axios.put(`http://localhost:3001/dogs/update/${id}`, {data});
+  console.log(response.data);
+  dispatch({ type: UPDATE_DOG, payload: response.data });
+  return response.data;
+} catch (error){
+  console.error(error);
+}
+} */
+  
 
 

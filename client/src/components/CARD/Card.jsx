@@ -9,19 +9,24 @@ import { useEffect } from 'react';
 
 const Card = ({id, name,weight, image, temperaments, temperament, createInDb}) => {
   const [isDeleting, setIsDeleting] = useState(false);
-  const dispatch = useDispatch();
+  const [isDeleted, setIsDeleted] = useState(false);
+
+  const dispatch = useDispatch({});
 
   useEffect(() => {
     if (isDeleting) {
       console.log('Deleting dog...');
       setIsDeleting(false);
+      setIsDeleted(false);
     }
   }, [dispatch]);
 
   const handleDeleteDog = async (id) => {
-    try {
+    try { 
       setIsDeleting(true);
-      dispatch(deleteDog(id.id));
+      setIsDeleted(true);
+     await dispatch(deleteDog(id.id));
+     window.location.reload(); // recargar la página
     } catch (error) {
       console.error(error);
     }
@@ -47,8 +52,11 @@ return (
         </div>
       </Link>
       {createInDb && (
-          <button onClick={() => handleDeleteDog({ id })}>DELETE</button>
+          <button className={styles.ButtonDelete} onClick={() => handleDeleteDog({id})}>DELETE</button>
         )}
+        {isDeleted && (
+          <p>Dog was deleted succesfully!</p>
+        )}    
     </div>
   );
 };

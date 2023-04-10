@@ -9,6 +9,9 @@ const initialState = {
     dogsCopy: [],
     temperaments: [],
     searchTerm: '',
+    data: [],
+    loading: false,
+    error: null
 };
 
 function rootReducer(state = initialState, action) {
@@ -147,9 +150,37 @@ function rootReducer(state = initialState, action) {
                                         dogs: newDogsCopy,
                                         dogsCopy: newDogsCopy
                                     };
-                              
-            
-                    
+
+                                    case "UPDATE_DOG":
+                                    const updatedDog = action.payload;
+                                    const updatedData = state.data.map((dog) => {
+                                        if (dog.id === updatedDog.id) {
+                                        return updatedDog;
+                                        }
+                                        return dog;
+                                    });
+                                    return {
+                                        ...state,
+                                        data: updatedData
+                                    };
+
+                                    
+                                /*     case "UPDATE_DOG":
+                                        const updatedDogs = state.dogs.map((dog) => {
+                                          if (dog.id === action.payload.id) {
+                                            return {
+                                              ...dog,
+                                              ...action.payload
+                                            }
+                                          }
+                                          return dog
+                                        })
+                                        return {
+                                          ...state,
+                                          dogs: updatedDogs
+                                        }
+ */
+                                  
                       default:
                       return state;
     }

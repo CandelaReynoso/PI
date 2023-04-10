@@ -5,13 +5,13 @@
     font-size: large;
     margin-left: 7%; 
     position:relative;
-    right:170px;
-    top:150px;
+    right:150px;
+    top:30px;
   }
 
   
   .SearchBar button {
-    margin-left: 3%; /* Margen a la izquierda del botón */
+    margin-left: -3%; /* Margen a la izquierda del botón */
     background-color: #bde0fe;
     color: #bc3d49;
     border: none;

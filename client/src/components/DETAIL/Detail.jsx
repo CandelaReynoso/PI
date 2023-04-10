@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link  } from "react-router-dom";
+import { useParams, Link, useHistory  } from "react-router-dom";
 import axios from 'axios'
 import styles from '../DETAIL/Detail.module.css';
+
 
 const Detail = () => {
     const { id } = useParams();
     const [doggys, setDoggys] = useState({}); 
+    const history = useHistory();
+
 
     useEffect(() => {
         async function fetchData() {
@@ -55,24 +58,28 @@ const Detail = () => {
                             <div className={styles.circle}>
                             <div><span className={styles.property}>Height: </span><p className={styles.property2}>{doggys.height} cm</p></div>
                             <div><span className={styles.property}>Weight: </span><p className={styles.property2}>{doggys.weight} kg</p></div>
-                            <div><span className={styles.property}>Temperaments: </span><p className={styles.temperament}>{doggys.temperament}</p></div>
+                            <div><span className={styles.property}>Temperaments: </span><p className={styles.property2}>{doggys.temperament.join(' , ')}</p></div> 
                             {doggys.age && doggys.age[0] !== ' ' ? <div><span className={styles.property}>Age: </span>
                             <p className={styles.property2}>{doggys.age}</p></div> : null}
                           
                             {/* dogs api */}
-                            { console.log(doggys)}
-                                {doggys.createInDb === true ?
-                                Array.isArray(doggys.temperaments) && doggys.temperaments.length
-                                ? (doggys.temperaments.length ? <div><span  className={styles.property}>Temperaments: </span><p>
-                                    {doggys.temperaments?.map(temp => <span className={styles.property2} key={temp}><ul>{temp}, </ul></span>)}</p></div> : null)
-                                : null
-                                :
-                                Array.isArray(doggys.temperament) && doggys.temperament.length
-                                ? (doggys.temperament.length ? <div><span className={styles.property}>Temperaments: </span><p>
-                                    {doggys.temperament?.map(temp => <span className={styles.property2} key={temp}><ul>{temp}, </ul></span>)}</p></div> : null)
-                                : null
-                            }
-
+                            {doggys.createInDb === true ?
+  Array.isArray(doggys.temperaments) && doggys.temperaments.length
+  ? <div><span className={styles.property}>Temperaments: </span><p className={styles.property2}>
+      {doggys.temperaments.join(", ")}</p>
+      </div>
+  : null
+  
+  :
+  Array.isArray(doggys.temperament) && doggys.temperament.length
+  ? <div><span className={styles.property}>Temperaments: </span><p className={styles.property2}>
+      {doggys.temperament.join(", ")}</p></div>
+  : null
+}
+{ doggys.createInDb? <div className={styles.update}>
+      <Link to = {`/form/${id}`} className={styles.update2}  >UPDATE</Link>
+      </div> : null
+}
                         </div>
                     </div>
                 </div>

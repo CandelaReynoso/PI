@@ -85,3 +85,13 @@
     position: relative;
     right: 60px;   
   }
+
+  .TheDogApp {
+    color: red;
+    font-size: 4em;
+    font-weight: bold;
+    font-size: 5em;
+    text-decoration: none;
+    font-family: Dejavu serif;
+    transition: color 0.3s ease;
+  }
